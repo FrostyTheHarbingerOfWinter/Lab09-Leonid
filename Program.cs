@@ -39,3 +39,51 @@
 //     Console.WriteLine($"Билетов пропущено: {count}");
 //     break;
 // }
+
+
+
+// for (; ; ) {
+//     Console.Write("Введите код группы (для выхода - 'выход'): ");
+//     string groupCode = Console.ReadLine();
+
+//     if (groupCode == "exit") {
+//         break;
+//     }
+
+//     Console.WriteLine($"Записан код группы {groupCode}");
+// }
+
+// Console.WriteLine("Работа с журналом завершена");
+
+
+
+// int totalResult = 15;
+
+// for (int number = 1; number <= totalResult; number += 2)
+// {
+//     Console.WriteLine($"Нечётные: {number}");
+// }
+
+
+
+// int totalResult = 0;
+
+// for (int number = 100; number >= totalResult; number -= 10)
+// {
+//     Console.WriteLine($"Счёт: {number}");
+// }
+
+
+Console.Write("Введите свою фамилию: ");
+string surname = Console.ReadLine()!.Trim();
+if (string.IsNullOrEmpty(surname)) {
+Console.WriteLine("Фамилия не введена. Завершение работы.");
+return;
+}
+Random rnd = new(surname.GetHashCode() + DateTime.Now.DayOfYear);
+var assigned = Enumerable.Range(1, 10)
+.OrderBy(_ => rnd.Next())
+.Take(2)
+.OrderBy(x => x)
+.ToList();
+Console.WriteLine($"Задачи: №{assigned[0]} и №{assigned[1]}");
